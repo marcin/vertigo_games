@@ -1,20 +1,30 @@
-A First Level Header
+Gry w Turbo Pascalu 7.0
 ====================
 
-A Second Level Header
+Gry na których uczyłem się programować w liceum
+
+Tasman
 ---------------------
 
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
+gra podobna do bulderdash - można tworzyć własne plansze
 
-The quick brown fox jumped over the lazy
-dog's back.
 
-### Header 3
+Vertigo
+---------------------
 
-> This is a blockquote.
-> 
-> This is the second paragraph in the blockquote.
->
-> ## This is an H2 in a blockquote
+gra podobna do "Statków". Każdy z 2 graczy wybiera liczbe dwucyfrową, umieszcza ja na planszy. Sprawdzając kolejne pola planszy należy 
+jak najszybciej domyślić się jaką liczbę wybrał przeciwnik.
+
+
+Wije
+---------------------
+
+rozciągający się wąż którego trzeba prowadzić aby nie udeżył w ścianę i aby nie zjadł siebie
+
+
+Kreski
+---------------------
+
+podobna do Wije ale z uboższą grafiką
+
+
