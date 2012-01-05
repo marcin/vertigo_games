@@ -1,7 +1,7 @@
 Gry w Turbo Pascalu 7.0
 ====================
 
-Gry na których uczyłem się programować w liceum
+Gry na których uczyłem się programować w liceum (około 1995 roku)
 
 Tasman
 ---------------------
@@ -27,4 +27,9 @@ Kreski
 
 podobna do Wije ale z uboższą grafiką
 
+
+Szewc
+---------------------
+
+to już gra stworzona na studiach - MIMUW 1998 
 
