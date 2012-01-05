@@ -8,6 +8,8 @@ Tasman
 
 gra podobna do bulderdash - można tworzyć własne plansze
 
+![screenshot1](http://radgost.com/pagelayout/radgost/images/radgost_logo.png)
+
 
 Vertigo
 ---------------------
