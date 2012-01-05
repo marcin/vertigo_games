@@ -1,0 +1,46 @@
+      Wije v1.0   (C) 1995 by Emes Software   autor:Marcin Stefaniak
+
+  Wije jest grÜ zrëcznoûciowÜ. Zasady sÜ bardzo proste, naleßy jak najdíußej 
+utrzymaç przy ßyciu Wijë, kt¢rÜ kierujesz (musisz przeßyç díußej niß Tw¢j 
+przeciwnik). Czym díußej obie Wije pozostajÜ na planszy, tym wiëcej punkt¢w
+otrzyma ta, kt¢ra przeßyje. Wija traci ßycie, gdy uderzy w siebie, innÜ Wijë
+lub w ûcianë. Dodatkowo na jednej z plansz moßna rozbiç sië o szare okrëgi.
+
+
+Klawisze "+" i "-"  zwiëkszajÜ, lub zmniejszajÜ opcje: ROZCIèG,SZYBKOòï
+ i KOMPUTER
+
+-opcja ROZCIèG síußy do ustalania stopnia w jakim Wije bëdÜ sië rozciÜgaíy
+ 00-bardzo znikoma rozciÜgliwoûç, 99-ogon pozostaje w miejscu startu
+
+-opcjÜ SZYBKOòï reguluje sië szybkoûç poruszania Wij
+ 000-bardzo wolno, 300-odlot
+
+-opcja KOMPUTER síußy do ustalenia poczyna§ komputera (jeûli jest naszym 
+ przeciwnikiem)
+ 01-komputer szaleje, 99-spokojny i precyzyjny
+ Gdy wybießemy 00 i grë na jednÜ osobë, wtedy na planszy bëdzie jedna
+ Wija, lecz zdobywa sië tylko poíowë punkt¢w.
+
+Aby wpisaç swoje imië wejd¶ na opcjë GRACZ 1 lub GRACZ 2, naciûnij Enter 
+ i wpisuj (klawisz "."  - to odstëp)
+
+Gracz 1 porusza sië za pomocÜ strzaíek, a klawiszami Gracza 2 sÜ:
+ S-g¢ra, X-d¢í, Z-lewo ,C-prawo 
+ 
+
+
+Ciekawe ustawienia:
+ - komputer 01, szybkoûç 290, rozciÜg 00    (refleksujÜca)
+ - komputer 99, szybkoûç 280, rozciÜg 98    (dobre wyniki)
+
+
+
+
+
+
+                                                 Emes Software
+                                               ul. Koûciuszki 48
+                                                 08-112 Wiûniew
+
+                                                                               

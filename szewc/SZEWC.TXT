@@ -1,0 +1,457 @@
+Dokumentacja gry logicznej "Szewc"
+
+autor: 
+  Marcin Beniamin Stefaniak
+  e-mail: ms181066@zodiac.mimuw.edu.pl
+
+
+Spis tre˜ci
+1. Charakterystyka problemu
+   1.1. Wprowadzenie teoretyczne.
+   1.2. Dokˆadne sformuˆowanie problemu.
+   1.3. Przegl¥d zastosowaä programu.
+
+2. Charakterystyka algorytmu
+   1.1. Opis metody rozwi¥zania.
+   1.2. Uzasadnienie wyboru przyj©tej metody,
+          dyskusja alternatywnych rozwi¥zaä, zˆo¾ono˜ci rozwi¥zania.
+
+3. Struktura programu
+   3.1. J©zyk programowania, rodzaj sprz©tu.
+   3.2. Niezb©dne zasoby komputera.
+   3.3. Opis gˆ¢wnych struktur danych.
+   3.4. Podziaˆ programu na moduˆy, komunikacja miedzy moduˆami, opis moduˆ¢w.
+   3.5  Opis wej˜cia / wyj˜cia programu.
+
+4. Instrukcja obsˆugi
+
+
+1. Charakterystyka problemu
+
+  1.1 Wprowadzenie teoretyczne.
+Gra "Szewc" jest rozgrywana na siatce toroidalnej o rozmiarze MxN (prostok¥t MxN ze 
+sklejonymi brzegami: g¢rny z dolnym i lewy z prawym). Niekt¢re kraw©dzie na planszy 
+mog¥ by† od pocz¥tku zaj©te. W grze uczestnicz¥ dwaj gracze, kt¢rzy wykonuj¥ ruchy na 
+przemian. Ruch polega na WYMUSZONYM PASOWANIU lub zaj©ciu na siatce jednej, 
+dot¥d nie zaj©tej kraw©dzi (pionowej lub poziomej).  Je˜li wskutek ruchu gracza 
+wszystkie kraw©dzie wok¢ˆ jakieg4o˜ pola na siatce zostaˆy zaj©te, to gracz  uzyskuje za 
+to pole 1 punkt (zatem w jednym ruchu mo¾na uzyska† od 0 do 2 punkt¢w).  Je˜li w 
+wyniku ruchu gracz uzyskaˆ dodatnia liczb© punkt¢w, to w nast©pnym ruchu jego 
+przeciwnik  MUSI SPASOWAC. Gra toczy si© a¾ do chwili, gdy zostan¥ zaj©te 
+wszystkie kraw©dzie -  wtedy zwyci©zc¥ zostaje gracz, kt¢ry uzyskaˆ wi©cej punkt¢w 
+(czasem mo¾liwy jest remis), lub do chwili przekroczenia limitu czasu do namysˆu przez 
+kt¢rego˜ z graczy.
+
+
+  1.2 Sformuˆowanie problemu.
+Podstawowym problemem jest stworzenie przyjaznego interfejsu u¾ytkownika. Powinien 
+by† wygodny dla u¾ytkownika (przedstawienie aktualnej sytuacji na planszy i 
+wykonywanie ruch¢w), umo¾liwia† cofania ruch¢w, a tak¾e wybranie tego, kto jest 
+pierwszym, a kto drugim graczem oraz  wyb¢r na gracza czˆowieka lub komputera. 
+Powinien te¾ dawa† mo¾liwo˜† wczytania opisu planszy z pliku.
+Nale¾y stworzy† te¾ lepszy ni¾ losowy algorytm gry komputera, kt¢ry b©dzie optymalny 
+ze wzgl©du na szybko˜† dziaˆania zwi¥zana z naˆo¾onymi ograniczeniami, b©dzie 
+wykorzystywaˆ dost©pn¥ pami©† i oczywi˜cie b©dzie skuteczny je˜li chodzi o 
+podejmowane decyzje dotycz¥ce ruch¢w. 
+
+  1.3 Przegl¥d zastosowaä programu.   
+Program mo¾e sˆu¾y† przede wszystkim jako rozrywka intelektualna. Podlega† b©dzie 
+tak¾e ocenie jako praca semestralna I roku informatyki w roku 1999.
+
+
+2. Charakterystyka algorytmu (algorytm gry komputera)
+
+  2.1 Opis metody rozwi¥zania 
+Pocz¥tkowo kraw©dzie mog¥ by† zajmowane losowo (oczywi˜cie tak, aby nie straci† 
+szansy zdobycia punkt¢w oraz aby nie stworzy† kwadratu o trzech zaj©tych kraw©dziach 
+- co niew¥tpliwie wykorzystaˆby przeciwnik do zdobycia punktu) do momentu, gdy 
+trzeba ustawi† trzeci¥ kraw©d« na kwadracie. Wtedy wˆa˜nie nale¾y przeprowadzi† 
+analiz© blok¢w. Bloki s¥ to s¥siednie kwadraty takie ¾e je˜li napoczniemy jeden z nich to 
+automatycznie mo¾na zaj¥† caˆy blok nie daj¥c przeciwnikowi szansy ruchu. Przez 
+napocz©cie kwadratu przyjmuje dostawienie trzeciej kraw©dzi - wtedy mo¾na dostawi† 4 
+otrzymuj¥c punkty, co spowoduje podniesienie do 3 ilo˜ci kraw©dzi w s¥siednim 
+kwadracie bloku, wtedy znowu zajmujemy 4 kraw©d« otrzymuj¥c punkt i tak a¾ do 
+zaj©cia wszystkich kwadrat¢w bloku.
+Analiza daje nam najmniejszy napocz©ty i nie napocz©ty blok oraz ilo˜† blok¢w i liczb© 
+punkt¢w za bloki. Je˜li znajdziemy napocz©ty blok  to mo¾emy go caˆego zaj¥c i wtedy 
+musimy napocz¥† nast©pny (wi©kszy) blok co niew¥tpliwie wykorzysta przeciwnik do 
+jego zaj©cia, lub mo¾emy zaj¥c cz©˜† bloku zostawiaj¥c koäc¢wk© i wtedy przeciwnik 
+musi j¥ zaj¥†, a nam napocznie kolejny blok z kt¢rym my post¥pimy podobnie.
+
+
+  2.2 Uzasadnienie wyboru przyj©tej metody, dyskusja alternatywnych rozwi¥zaä, 
+zˆo¾ono˜† rozwi¥zania
+Moim zdaniem przyj©ta przeze mnie metoda ma du¾e prawdopodobieästwo by† lepsza 
+od losowej, lub zachˆannej (wybieraj¥cej posuni©cie optymalne w danej chwili). 
+Sprawdzianem tej metody byˆ konkurs moduˆ¢w graj¥cych kt¢ry udowodniˆ, ¾e jest to 
+metoda lepsza od wielu innych.
+Zˆo¾ono˜† rozwi¥zania jest liniowa ze wzgl©du na liczb© kraw©dzi.
+
+
+3. Struktura programu
+
+   3.1.Wyb¢r j©zyka programowania.
+Program b©dzie napisany w  Turbo Pascalu 7.0
+
+
+
+   3.2. Niezb©dne zasoby komputera.
+Program mo¾e by† uruchamiany na komputerze z procesorem Intel lub zgodnym. Jest 
+wymagana co najmniej karta graficzna SVGA (640x480 przy 256 kolorach), nale¾y te¾ 
+posiada† mysz  i zainstalowa† driver myszy zgodny z driverem Microsoftu.
+
+Wymagane s¥ nast©puj¥ce pliki:
+? svga256.bgi
+? rysunki.dat
+? szewc.dat
+
+     
+
+  3.3.Opis gˆ¢wnych struktur danych.
+
+ Gˆ¢wne struktury danych:
+
+{typ dla planszy gry}
+  TLinia=record
+           pol :array[1..2]of byte;
+         end;
+  TPlansza=array[1..zakres, 1..zakres] of TLinia;
+
+{typ dla pliku planszy}
+  TPair = record
+                x,y: integer
+             end;
+  TFileOfPairs = file of TPair;
+
+
+  {inforamcja o rozmiarze planszy i o graczach}
+  TGracz= record
+            m,n:integer;
+            info:array[1..2] of record
+              czlowiek:boolean;
+              nazwa:string;
+            end;
+          end;
+
+
+{rodzaje rysunkow} 
+rodzaj=(mysza,guzikWl,guzikWyl,Glowa,Monitor,UndoWl,UndoWyl,redowl,redowyl,ramka);
+
+  {dane o rysunkach}
+  TDane=array[rodzaj] of record
+                           x1,y1,x2,y2:integer;{polozenie rysunku}
+                           k1,k2 :integer;{zakres kolorow ktorych nie }
+                                          {bedzie wstawial            }
+                           p:pointer {miejsce rysunku w pamieci}
+                         end;
+
+  {okna opcji}
+  ROkna=(gr1,gr2,      {gracze - czlowiek komputer}
+         naz1,naz2,    {nazwy graczy}
+         undo,redo,    {przyciski undo i redo}
+         g1,g2,g3,g4   {guziki od gory g1-wczytanie g2-zapisanie
+                       {g3-nowa gra g4-koiec gry});
+
+  {wspolrzedne oknien opcji}
+  TOkna=array[ROkna] of record x1,y1,x2,y2 :integer end;
+
+
+  {typ danych przechowywanych na stosie - inforamcje o ruchach}
+  TDaneStos=record
+          x,y,k,kto:integer;
+        end;
+
+
+
+
+  {typy dla stosu undo i redo}
+  TStos=^ElStosu;
+  ElStosu= record
+              dane:TDaneStos;
+              poprz:TStos;
+           end;
+
+
+Gˆ¢wna p©tla programu:
+
+{inicjacja programu}
+
+While not WyjdzZProgramu do begin
+
+	{inicjacja nowej gry}
+
+      While not NowaGra do begin
+
+         {zmiana graczy ich ruch}
+         {je˜li odpowiednie polozenie myszy to wybor opcji}
+
+      end;
+     
+end{wyjdz zprogramu};
+
+{zwolnienie pamieci}
+ 
+
+3.4. Podziaˆ programu na moduˆy, komunikacja miedzy moduˆami, opis                       
+moduˆ¢w.
+
+
+ Schemat zale¾no˜ci:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Program jest podzielony na nast©puj¥ce moduˆy:
+Program gˆ¢wny : podstawowy, inicjuj¥cy, zarz¥dzaj¥cy caˆym programem, wykorzystuj¥cy 
+wszystkie moduˆy
+
+Moduˆ Ekran: zawieraj¥cy funkcje komunikacyjne z u¾ytkownikiem: obsˆug© ekranu
+
+
+{ "duza" tablica potrzebna jest do odznaczania krawedzi w opcji Undo }
+{ oraz w momencie nowej gry do "zakrycia" efektow gry poprzedniej    }
+{ Nie mozna stworzyc "normalnej" tablicy planszy - za duzo danych    }
+{ wiec stworzylem wlasna - wolniejsza, ale pojemniejsza tablice      }
+
+procedure RysujPlansze(var pole:TPlansza;nazwa1,nazwa2:string;wysokosc, 
+szerokosc:integer);
+{ rysuje "krzyzyki" na planszy w zaleznosci od szerokosci i wysokosci   }
+{ wpisujac jednczesnie nazwy graczy                                     }
+
+procedure RysujLinie(i,j,k,kolor,ll:integer);
+{ rysuje krawedz i,j,k w o szerokosci ll }
+
+procedure ZakryjLinie(i,j,k,l:integer);
+{ zakrywa linie i,j,k o szerokosci l tlem z DuzejDablicy}
+
+function punkty(p:TPlansza;i,j,k,kolor:integer):byte;
+{ funkcja zwraca watorsc rowna ilosci punktow za postawienie krawedzi }
+{ w punkcie i,j,k                                                     }
+{ kolor to kolor punktowanego kwadratu i jesli k=-1 to nalozenie tla  }
+{ a jesli kolor=0 to nie rysujemy kwadratu                            }
+
+procedure RysujPunkty(pkt1,pkt2:integer;czas1,czas2:longint);
+{ aktualizuje punkty i czas gry graczy }
+
+procedure czytaj(x,y,kolTla,kolTxt:integer;var txt:string;ile,co,boki:integer);
+{ porcedura czytajaca w trybie graficznym - podobna do readln                }
+{ x i y to wspolrzedne lewego gornego naroznika okna czytania		      }
+{ "kolTla" to kolor tla okna czytania, kolTxt to kolot tekstu 			}
+{ "ile" okresla ilosc mozliwych do wczytania znakow 					}
+{ "co" ustala czy moga byc czytane tylko cyfry co=2, czy wszystkie znaki co=1}
+{ "boki" to odleglosc krawedzi okna czytania od tekstu czytanego             }
+
+function PobierzTab(x,y:longint):byte;
+{ pobranie wartosci z komorki x,y "duzej" tablicy}
+
+procedure initTab;
+{ inicjacja "duzej" tablicy - przydzielenie pamieci }
+
+procedure NadajTab(x,y,wart:longint);
+{ nadane komorce x,y duzej tablicy wartosci wart }
+
+procedure RysZTab(x1,y1,x2,y2:integer);
+{ procedura wyswietlajaca czesc zapamietanego w tablicy ekranu }
+
+procedure zwolnijTab;
+{ zwolnienie pameici wykorzystywanej przez "duza" tablice}
+
+procedure ZapamietajRysunek(r:rodzaj);
+{ zapamietanie czesci ekrau okreslonego stala "r" typu rodzaj z
+{ jednoczesnym przydzialem pamieci }
+
+procedure ZwolnijRysunek(r:rodzaj);
+{ zwolnienie pamieci dla rysunku okreslonego stala "r" typu rodzaj}
+
+procedure WstawRysunek(r:rodzaj;px,py:integer);
+{ wstawienie zapamietanego uprzednio rysunku okreslonego stala "r" typu }
+{ rodzaj na ekranie w miejscu o lewym gornym wirzcholku w pkt. px,py    }
+
+
+
+Moduˆ Gracz: zawieraj¥cy algorytm gry Gracza wraz z typami danych , umo¾liwiaj¥cy 
+wykonywanie ruch¢w za pomoc¥ klawiatury lub mysz oraz mo¾liwo˜†  cofania ruch¢w, a 
+tak¾e wyboru lub odczytywania i zapisywania planszy z/do pliku
+
+type
+  {wynik wyboru pocji}
+  TWynik=(WjeszczeNic,Wruch, Wundo, Wredo, WkoniecGry, WnowaGra, WwczytajPlansze, 
+WOpcje);
+
+procedure TuraCzlowiek(var pole:TPlansza;var x,y,k:integer;nr :byte;var 
+wynik:TWynik);
+{ wykonanie ruchu przez czlowieka z ustaleniem ktora krawedz zajtea (x,y,k)}
+{ lub nie zajecie zadnej krawedzi jesli wczesniej przeciwnik uzyskal       }
+{ punkty                                                                   }
+{ "wynik" przyjmuje wartosc WRuch jesli gracz wykonal ruch, w przecwnym    }
+{ razie "wynik" przyjmuje wartosc "WJeszczeNic"                            }
+{ "nr" informuje ktory gracz wykonuje ruch                                 }
+{ kozysta ze zmiennych globalnych ktore inicjuje procedura initGracz       }
+
+procedure initGracz;
+{ inicjacja gracza zmienia zmienne globalne z ktorych korzysta procedura }
+{ TuraCzlowika                                                            }
+
+function wczytajPlansze(nazwa:string;var m,n:integer;var p:TPlansza):boolean;
+{wczytanie planszy (m,n i p) z pliku o nazwie nazwa, false jesli niepomyslne}
+{plik jest typu TFileOfPairs = file of TPair                                }
+
+function ZapiszPlansze(nazwa:string; m,n:integer;p:TPlansza):boolean;
+{zapisanie planszy (m,n i p) w pliku o nazwie nazwa, false jesli niepomyslne}
+{plik jest typu TFileOfPairs = file of TPair                                }
+
+procedure opcje(var p:TPlansza;var wynik:TWynik);
+{ wybor opcji gry za pomoca myszki                                          }
+{ wynik przyjmuje wartosc wybranej opcji                                    }
+{ jesli zostala wybrana opcja "wczytaj plansze" to jest modyfikowana        }
+{ palnsza p                                                                 }
+{ polozenie opcji na ekranie pobiera ze stalej Okno typu TOkna              }
+{ zdefiniowanej w module typy                                               }
+
+Moduˆ Komputer: zawieraj¥cy algorytm gry komputera
+
+procedure TuraKomputer(plansza:TPlansza;var x,y,k : integer);
+{ ruch komputera - pobiera i zmienia wartosci x,y i k }
+{ w zaleznosci od stanu "plansza"                     }
+
+Moduˆ Obsˆuga: obsˆuguj¥cy mysz, grafik© w wysokiej rozdzielczo˜ci oraz obsˆuguj¥cy 
+formaty graficzne
+
+
+procedure odczytbmp(nazwa:string);
+{ odczyt pliku typu bmp w rozdzielczosci 640x480 przy 256 kolorach }
+{ ustawia BMPPalette                                               }
+
+Procedure sciemnij;
+{ sciemnienie palety kolorow                }
+{ ustawia SCRPalette                        }
+
+procedure paleta;
+{ ustala palete kolorow SCRPalette na podstawie danych zawartych  }
+{ w BMPPalette                                                    }
+
+function MouseInit : boolean;
+{ inicjacja myszy - true gdy pomyslna, false gdy niepomyslna }
+
+Procedure ZwolnijMysz;
+{ zwolnienie pamieci potrzebnej na zapamietywanie tla pod kursorem }
+
+procedure MouseShow(var mx, my, mp : Integer);
+{ wyswietlenie kursora myszy oraz przekazanie jej wspolrzednych (mx i my) }
+{ oraz stanu nacisnietych klawiszy (mp  1-lewy, 2-prawy                   }
+
+procedure MouseNot;
+{ ukrycie kursora myszy }
+
+procedure ZwolnijKlawisz;
+{ procedura "czeka" na zwolnienie klawiszy myszy od stamu mp=0 }
+
+procedure kl(var z:char);
+{ procedura czyta klawisz z }
+
+procedure InicjujGrafike;
+{ inicjacja grafiki SVGA 640x480 }
+
+procedure ZamknijGrafike;
+{ zamkniecie trybu graficzenego }
+
+procedure Myszkolumny(lewo,prawo:integer);
+{ ustalenie ilosci kolumn kursora myszy od lewa do prawa }
+
+procedure Myszwiersze(lewo,prawo:integer);
+{ ustalenie ilosci wierszy myszy kursora od gory do dolu }
+
+procedure MousePos(var x,y,p:integer);
+{ zwraca pozycje kursora myszy }
+
+procedure dz;
+{ dzwiek }
+
+
+- moduˆ Typy : zawieraj¥cy typy, zmienne i staˆe wykorzystywane przez inne 
+moduˆy i program gˆ¢wny
+
+procedure StartCzas;
+{ procedura ustala aktualny czas ustalajac zmienne globalne wg,wm,ws,wss    }
+{ ktore wykorzysuje funkcja DajCzas do okreslenia czasu pomiedzy wywolaniem }
+{ StartCzas a DajCzas                                                       }
+
+function DajCzas:longint;
+{ okresla czas od wywolania procedury StartCzas, korzystajac ze zmiennych }
+{ wg, wm, ws, wss - czas jest w setnych sekundy                           }
+
+procedure initStos(var s:TStos);
+{procedura inicjujaca stos "s"}
+
+procedure Dodaj(var s:TStos;x:TDaneStos);
+{dodanie elementu "x" na stos "s"}
+
+procedure pobierz(var s:TStos;var x:TDaneStos);
+{pobranie elementu "x" ze stosu "s"}
+
+function pusty(var s:TStos):boolean;
+{funkcja zwraca true jesli stos "s" jest pusty, w przeciwnym razie false}
+
+procedure wyczysc(var s:TStos);
+{ czysci stos }
+
+function Tnij(x:integer;zakres:integer):integer;
+{funcja torzaca matroid}
+
+Function kwadrat(var p:TPlansza;i,j:integer):byte;
+{ funkcja zwraca ilosc krawedzi przy kwadracie i,j }
+
+
+function PelnaPlansza(var p:TPlansza):boolean;
+{funkcja zwraca true jesli plansza jest cala zapelniona}
+
+
+function w(x,y,x1,y1,x2,y2:integer):boolean;
+{funkcja daje wynik true jesli punkt x,y jest zawarty w prostokacie  }
+{o wspolrzednych x1,y1,x2,y2                                          }
+
+
+3.5  Opis wej˜cia / wyj˜cia programu
+ Z pliku o strukturze:
+ type 
+     TPair = record
+                x,y: integer
+             end;
+     TFileOfPairs = file of TPair;
+
+mo¾na odczyta† i do niego zapisa† wielko˜† planszy (pierwszy rekord) oraz kraw©dzie,  kt¢re 
+s¥ zaj©te na pocz¥tku rozgrywki (kolejne rekordy do koäca pliku).
+
+
+
+4.  Instrukcja obslugi
+
+Program obsˆuguje si© za pomoc¥ myszki (cho† mo¾liwe jest wykonywanie ruch¢w za pomoc¥ 
+klawiszy strzaˆek i spacji).
+
+Na polu opcji (prawa cz©˜† ekranu) klikaj¥c lewym przyciskiem myszy mo¾emy odpowiednio 
+wybra† :
+? nazw© pierwszego i drugiego gracza (czarne pole z nazw¥)
+? rodzaj  pierwszego i drugiego gracza: komputer lub czˆowiek (pole z rysunkiem komputera 
+lub "gˆowy")
+? opcje cofni©cia ruchu "undo" (przycisk ze strzaˆk¥ w lewo)
+? opcj© przywr¢cenia cofni©tego ruchu "redo" (przycisk ze strzaˆk¥ w prawo)
+? wczytanie planszy z pliku
+? zapisanie planszy do pliku
+? rozpocz©cie nowej gry
+? wyj˜cie z gry
+
+1
+
+8
+
