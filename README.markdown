@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/marcin/vertigo_games.png?label=ready&title=Ready)](https://waffle.io/marcin/vertigo_games)
 Gry w Turbo Pascalu 7.0
 ====================
 
