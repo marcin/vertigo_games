@@ -10,9 +10,15 @@ gra podobna do bulderdash - można tworzyć własne plansze
 
 ![screenshot1](http://radgost.com/pagelayout/radgost/images/radgost_logo.png)
 
+(C) MSt VertigO     Wisniew 1995
+Program: Marcin Stefaniak (program napisany w Turbo Pascalu 7)
+Grafika: Marcin Stefaniak, Magdalena Stefaniak
 
-Vertigo
+
+Vertigo 
 ---------------------
+
+Wisniew XI-XII.1994
 
 gra podobna do "Statków". Każdy z 2 graczy wybiera liczbe dwucyfrową, umieszcza ja na planszy. Sprawdzając kolejne pola planszy należy 
 jak najszybciej domyślić się jaką liczbę wybrał przeciwnik.
@@ -23,11 +29,17 @@ Wije
 
 rozciągający się wąż którego trzeba prowadzić aby nie udeżył w ścianę i aby nie zjadł siebie
 
+ Wije v1.0   (C) 1995 by Emes Software   autor:Marcin Stefaniak
+ 
 
 Kreski
 ---------------------
 
 podobna do Wije ale z uboższą grafiką
+
+9 Maj 1995 
+Wersja dla Protasa (IaLO 94/95   III LO w Siedlcach)
+
 
 
 Szewc
