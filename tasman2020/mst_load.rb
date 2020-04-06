@@ -60,22 +60,30 @@ def mst_load(nazwa_ml, px_ml1 = 0, py_ml1 = 0)
 
         return out if mst_kolor_txt == nil
         i += 1
-        mst_kolor = 0 if mst_kolor_txt == '0'
-        mst_kolor = 1 if mst_kolor_txt == '1'
-        mst_kolor = 2 if mst_kolor_txt == '2'
-        mst_kolor = 3 if mst_kolor_txt == '3'
-        mst_kolor = 4 if mst_kolor_txt == '4'
-        mst_kolor = 5 if mst_kolor_txt == '5'
-        mst_kolor = 6 if mst_kolor_txt == '6'
-        mst_kolor = 7 if mst_kolor_txt == '7'
-        mst_kolor = 8 if mst_kolor_txt  == '8'
-        mst_kolor = 9 if mst_kolor_txt  == '9'
-        mst_kolor = 10 if mst_kolor_txt == 'a'
-        mst_kolor = 11 if mst_kolor_txt == 'b'
-        mst_kolor = 12 if mst_kolor_txt == 'c'
-        mst_kolor = 13 if mst_kolor_txt == 'd'
-        mst_kolor = 14 if mst_kolor_txt == 'e'
-        mst_kolor = 15 if mst_kolor_txt == 'f'
+
+        colors2 = {a: 10, b: 11, c: 12, d: 13, e: 14, f: 15}
+        if colors2.keys.include?(mst_kolor_txt.to_sym)
+          mst_kolor = colors2[mst_kolor_txt.to_sym]
+        elsif mst_kolor_txt == '0' || ( mst_kolor_txt.to_i >= 1 && mst_kolor_txt.to_i <= 9)
+          mst_kolor = mst_kolor_txt.to_i
+        end
+
+        # mst_kolor = 0 if mst_kolor_txt == '0'
+        # mst_kolor = 1 if mst_kolor_txt == '1'
+        # mst_kolor = 2 if mst_kolor_txt == '2'
+        # mst_kolor = 3 if mst_kolor_txt == '3'
+        # mst_kolor = 4 if mst_kolor_txt == '4'
+        # mst_kolor = 5 if mst_kolor_txt == '5'
+        # mst_kolor = 6 if mst_kolor_txt == '6'
+        # mst_kolor = 7 if mst_kolor_txt == '7'
+        # mst_kolor = 8 if mst_kolor_txt  == '8'
+        # mst_kolor = 9 if mst_kolor_txt  == '9'
+        # mst_kolor = 10 if mst_kolor_txt == 'a'
+        # mst_kolor = 11 if mst_kolor_txt == 'b'
+        # mst_kolor = 12 if mst_kolor_txt == 'c'
+        # mst_kolor = 13 if mst_kolor_txt == 'd'
+        # mst_kolor = 14 if mst_kolor_txt == 'e'
+        # mst_kolor = 15 if mst_kolor_txt == 'f'
 
         digits = {p: 1, r: 2, s: 3, t: 4, u: 5, w: 6, x: 7, y: 8}
         if digits.keys.include?(mst_kolor_txt.to_sym)
