@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+</head>
+<body>
+<!-- <canvas id="my-canvas0"></canvas> -->
+<canvas id="my-canvas" width="5610" height="1120"></canvas>
+<script>
+var canvas = document.getElementById("my-canvas");
+var ctx = canvas.getContext("2d");
+
+// ctx.strokeStyle = "#000000";
+// ctx.lineWidth = 1;
+// ctx.moveTo(50, 10);
+// ctx.lineTo(200, 10);
+// ctx.stroke();
+
+// ctx.fillStyle = 'green';
+// ctx.fillRect(20, 10, 1, 1);
+
+tab1 =
+[
+'black', //000000
+'blue', //0000AA
+'green', //00AA00
+'#00AAAA', //'cyan',
+'red', //AA0000
+'magenta', //AA00AA
+'brown', //AA5500
+'#AAAAAA', //'light gray',
+'#555555', //'dark gray'
+'#5555FF', //'light blue'
+'#55FF55', //'light green'
+'#55FFFF', //'light cyan',
+'#FF5555', //'light red',
+'#FF55FF', //'light magenta'
+'yellow', //FFFF55
+'white', //FFFFFF
+
+]
+
+tab2 =
+['#000000',
+'#0000AA',
+'#00AA00',
+'#00AAAA',
+'#AA0000',
+'#AA00AA',
+'#AA5500',
+'#AAAAAA',
+'#555555',
+'#5555FF',
+'#55FF55',
+'#55FFFF',
+'#FF5555',
+'#FF55FF',
+'#FFFF55',
+'#FFFFFF',
+]
+
+let size = 10
+tab1.forEach((el,index) => {
+  ctx.fillStyle = el;
+
+  ctx.fillRect(index*size, size * 1, size, size);
+});
+
+tab2.forEach((el,index) => {
+  ctx.fillStyle = el;
+
+  ctx.fillRect(index*size, size * 3, size, size);
+});
+
+</script>
+
+</body>
+</html>
