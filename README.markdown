@@ -27,7 +27,7 @@ jak najszybciej domyślić się jaką liczbę wybrał przeciwnik.
 Wije
 ---------------------
 
-rozciągający się wąż którego trzeba prowadzić aby nie udeżył w ścianę i aby nie zjadł siebie
+rozciągający się wąż którego trzeba prowadzić aby nie uderzył w ścianę i aby nie zjadł siebie
 
  Wije v1.0   (C) 1995 by Emes Software   autor:Marcin Stefaniak
  
