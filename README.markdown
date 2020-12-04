@@ -2,7 +2,6 @@ Gry w Turbo Pascalu 7.0
 ====================
 
 Gry na których uczyłem się programować w liceum (około 1995 roku)
-https://photos.app.goo.gl/GzyprqA5ARdyTTnX7
 
 Tasman
 ---------------------
