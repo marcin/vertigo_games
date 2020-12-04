@@ -2,13 +2,14 @@ Gry w Turbo Pascalu 7.0
 ====================
 
 Gry na których uczyłem się programować w liceum (około 1995 roku)
+https://photos.app.goo.gl/GzyprqA5ARdyTTnX7
 
 Tasman
 ---------------------
 
 gra podobna do bulderdash - można tworzyć własne plansze
 
-![screenshot1](http://radgost.com/pagelayout/radgost/images/radgost_logo.png)
+![screenshot1](https://raw.githubusercontent.com/marcin/vertigo_games/master/screenshots/IMG_3659.jpg)
 
 (C) MSt VertigO     Wisniew 1995
 Program: Marcin Stefaniak (program napisany w Turbo Pascalu 7)
