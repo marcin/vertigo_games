@@ -6,7 +6,8 @@ Gry na których uczyłem się programować w liceum (około 1995 roku)
 Tasman
 ---------------------
 
-gra podobna do bulderdash - można tworzyć własne [plansze](https://github.com/marcin/vertigo_games/blob/master/Tasman/LEVEL.MST)
+gra podobna do bulderdash - można tworzyć własne [plansze](https://github.com/marcin/vertigo_games/blob/master/Tasman/LEVEL.MST) 
+#TODO: przepisać ją do HTML/JS lub Swift/iOS
 
 ![screenshot1](https://raw.githubusercontent.com/marcin/vertigo_games/master/screenshots/IMG_3659.jpg)
 
